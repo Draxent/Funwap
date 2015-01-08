@@ -26,26 +26,34 @@ a list of working examples that allows you to see the potential of the language.
 
 ##Example
 ```c#
-  try
-  {
-    // Scanner phase
-    Scanner s = new Scanner();
-    s.Initialize("func Main(){ println(\"Hello World!\"); }");
-    IEnumerable<Token> tokens = s.Tokenize();
-    
-    // Trasform the token enumerator in list and remove all the comments
-    List<Token> tokenlist = new List<Token>();
-		foreach (var token in tokens)
-			if (token.Type != TokenType.COMMENT)
-				tokenlist.Add(token);
-		
-		// Parser phase
-		Parser p = new Parser(tokenlist);
-    
-    // Create the Abstract Syntax Tree.
-		System.Tuple<Token, BlockNode> pair = p.ParseTree();
-  }
-  catch (System.FunwapException ex){ System.Console.Write(ex.Message); }
+public IDE()
+{
+   InitializeComponent();
+   Editor.AcceptsTab = true;
+   try
+   {
+      // Scanner phase
+      scanner = new Scanner();
+      scanner.Initialize("func Main(){ println(\"Hello World!\"); }");
+      tokens = scanner.Tokenize();
+      
+      // Trasform the token enumerator in list and remove all the comments
+      tokenlist = new List<Token>();
+      foreach (var token in tokens)
+         if (token.Type != TokenType.COMMENT)
+            tokenlist.Add(token);
+
+      // Parser phase
+      parser = new Parser(tokenlist);
+      
+      // Create the Abstract Syntax Tree.
+      System.Tuple<Token, BlockNode> pair = parser.ParseTree();
+      main = pair.Item1;
+      root = pair.Item2;
+      nameFile = "Hello_World";
+   }
+   catch (System.FunwapException ex) { System.Console.Write(ex.Message); }
+}
 ```
 
 ##Supported Operation
