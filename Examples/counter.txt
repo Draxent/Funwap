@@ -1,0 +1,16 @@
+func counter() fun() int
+{
+	var count = 0 int;
+	return func() int { count++; return count; };
+}
+
+func Main()
+{
+	var c1 = counter(), c2, c3 fun() int;
+	println(c1()); // 1
+	c2 = c1;
+	println(c2()); // 2
+	c3 = counter();
+	println(c1()); // 3
+	println(c3()); // 1
+}

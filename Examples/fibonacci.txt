@@ -1,0 +1,24 @@
+func fib (n int) int
+{
+	if ((n == 0) || (n == 1))
+	{
+		return n;
+	}
+	else
+	{
+		var a,b int;
+		a = fib(n-1);
+		b = fib(n-2);
+		return a + b;
+	}
+}
+
+func Main()
+{
+	var n int;
+	println("Inserisci N = ");
+	n = readln();
+	
+	// FIB(10) = 55
+	println("FIB(",n,") = ",fib(10));
+}

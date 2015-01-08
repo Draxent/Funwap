@@ -1,0 +1,15 @@
+var sum = 0 int;
+
+func adder() fun(int)
+{
+	return func(s int) { sum += s; };
+}
+
+func Main()
+{
+	var f = adder() fun(int);
+	f(3);
+	println("SUM = ", sum);
+	f(2);
+	println("SUM = ", sum);
+}

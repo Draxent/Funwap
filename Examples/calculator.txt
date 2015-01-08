@@ -1,0 +1,18 @@
+func Main()
+{
+	var a, b, r int;
+	var op char;
+	var opExecuted = false bool;
+	println("Read A = ");
+	a = readln();
+	println("Read B = ");
+	b = readln();
+	println("Read operation = ");
+	op = readln();
+	if (op == '+'){ r = a+b; opExecuted = true; }
+	if (op == '-'){ r = a-b; opExecuted = true; }
+	if (op == '*'){ r = a*b; opExecuted = true; }
+	if (op == '/'){ r = a/b; opExecuted = true; }
+	if (opExecuted){ println("A ",op," B = ",r); }
+	else{ println("The operation is not supported."); }
+}

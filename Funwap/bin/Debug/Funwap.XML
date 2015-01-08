@@ -1,0 +1,1991 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Funwap</name>
+    </assembly>
+    <members>
+        <member name="T:Funwap.AbstractSyntaxTree.AsyncNode">
+            <summary>
+            Denote a asynchronous operation node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.CommandNode">
+            <summary>
+            Used to specified the type of <see cref="T:Funwap.AbstractSyntaxTree.StatementNode"/>, it denotes a command node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.StatementNode">
+            <summary>
+            Used to specified the type of <see cref="T:Funwap.AbstractSyntaxTree.SyntacticNode"/>, it denotes a statement node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.SyntacticNode">
+            <summary>
+            Denote the generic node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.SyntacticNode.GraphicNode">
+            <summary>The node contains a pointer to its visual representation.</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.SyntacticNode.Token">
+            <summary>The <see cref="F:Funwap.AbstractSyntaxTree.SyntacticNode.Token"/> representing the node.</summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.SyntacticNode.#ctor(Funwap.LexicalAnalysis.Token)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.SyntacticNode"/> class.</summary>
+            <param name="token">The <see cref="F:Funwap.AbstractSyntaxTree.SyntacticNode.Token"/> associated to this node.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.SyntacticNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.SyntacticNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.SyntacticNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.SyntacticNode.Tab(System.Int32)">
+            <summary>Generate a string with <paramref name="tab"/> number of tabulation.</summary>
+            <param name="tab">The number of tabulation we want to generate.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.StatementNode.#ctor(Funwap.LexicalAnalysis.Token)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.StatementNode"/> class.
+            </summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> associated to this node.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.CommandNode.#ctor(Funwap.LexicalAnalysis.Token,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.CommandNode"/> class.
+            </summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> associated to this node.</param>
+            <param name="title">The title of this command node.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AsyncNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.ExpressionNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.AsyncNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the Async statement.</param>
+            <param name="ide">The <see cref="T:Funwap.LexicalAnalysis.Token"/> of the variable involved into the asynchronous operation.</param>
+            <param name="expNode">The expression to execute asynchronously.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AsyncNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AsyncNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+            <exception cref="T:System.FunwapException">Thrown when <see cref="T:Funwap.AbstractSyntaxTree.AsyncNode"/> does not support the type of the variable.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AsyncNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+            <exception cref="T:System.FunwapException">Thrown in all the cases, since it is not possible to interpet a code containing the Async statement.</exception>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.DAsyncNode">
+            <summary>
+            Denote a asynchronous distributed operation node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DAsyncNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.VarNode,Funwap.AbstractSyntaxTree.CallNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the DAsync statement.</param>
+            <param name="ide">The <see cref="T:Funwap.LexicalAnalysis.Token"/> of the variable involved into the asynchronous operation.</param>
+            <param name="urlNode">The <see cref="T:Funwap.AbstractSyntaxTree.VarNode"/> containing the URL associated to this distributed operation.</param>
+            <param name="callNode">The remote function to call.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DAsyncNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DAsyncNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DAsyncNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+            <exception cref="T:System.FunwapException">Thrown in all the cases, since it is not possible to interpet a code containing the DAsync statement.</exception>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.ReadNode">
+            <summary>
+            Denote a read node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReadNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.LexicalAnalysis.Token)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.ReadNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the READ statement.</param>
+            <param name="ide">The IDE.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReadNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReadNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+            <exception cref="T:System.FunwapException">Thrown when the <see cref="T:Funwap.AbstractSyntaxTree.ReadNode"/> does not support the variable type.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReadNode.GetValue(Funwap.Result)">
+            <summary>
+            </summary>
+            <returns><c>null</c></returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.AssignNode">
+            <summary>
+            Denote an  assignment node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AssignNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.SyntacticNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.AssignNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the identifier.</param>
+            <param name="valueN">The subtree representing the value to be assigned to the identifier.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AssignNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the assignment does not respect the expected type.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AssignNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.AssignNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.BinaryOperationNode">
+            <summary>
+            Denote a binary operation node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.OperationNode">
+            <summary>
+            Denote an node operational of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.ExpressionNode">
+            <summary>
+            Used to specified the type of <see cref="T:Funwap.AbstractSyntaxTree.SyntacticNode"/>, it denotes an expression node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ExpressionNode.#ctor(Funwap.LexicalAnalysis.Token)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.ExpressionNode"/> class.
+            </summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> associated to this node.</param>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationNode.type">
+            <summary>Represent the type of operation that we want to execute.</summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.OperationNode.#ctor(Funwap.LexicalAnalysis.Token)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.OperationNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the type of operation that we want to execute.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.OperationNode.ConvertType(Funwap.LexicalAnalysis.TokenType)">
+            <summary>
+            Covert a <see cref="T:Funwap.LexicalAnalysis.TokenType"/> into an <see cref="T:Funwap.AbstractSyntaxTree.OperationType"/>.
+            </summary>
+            <param name="t">The <see cref="T:Funwap.LexicalAnalysis.TokenType"/> <paramref name="t"/> to convert.</param>
+            <returns>The converted value.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it cannot do the conversion.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.OperationNode.OperationType_ToString(Funwap.AbstractSyntaxTree.OperationType)">
+            <summary>
+            Represent the <see cref="T:Funwap.AbstractSyntaxTree.OperationType"/> <paramref name="t"/> in text format.
+            </summary>
+            <param name="t">The <see cref="T:Funwap.AbstractSyntaxTree.OperationType"/> to trasform into text.</param>
+            <returns>A <see cref="T:System.String"/></returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.OperationNode.OperationType_Compile(Funwap.AbstractSyntaxTree.OperationType)">
+            <summary>
+            Convert the <see cref="T:Funwap.AbstractSyntaxTree.OperationType"/> <paramref name="t"/> into a string compliant to the C# code.
+            </summary>
+            <param name="t">The <see cref="T:Funwap.AbstractSyntaxTree.OperationType"/> to compile.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BinaryOperationNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.ExpressionNode,Funwap.AbstractSyntaxTree.ExpressionNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.BinaryOperationNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the type of operation that we want to execute.</param>
+            <param name="l">The left child on which the operation is performed.</param>
+            <param name="r">The right child on which the operation is performed.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BinaryOperationNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the operation is not supported or the type of the two operators are different.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BinaryOperationNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BinaryOperationNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.BlockType">
+            <summary>
+            It is an enumeration type that allows to distinguish the various Block.
+            </summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.BlockType.PROGRAM_BLOCK">
+            <summary>Used for the block of the entire program.</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.BlockType.MAIN_BLOCK">
+            <summary>Used for the block of the main function.</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.BlockType.NORMAL">
+            <summary>Used in all the other cases.</summary>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.BlockNode">
+            <summary>
+            Denote a block node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.BlockNode.CallBinding">
+            <summary> Action to perform if it is a function block, in order to bind the formal parameters into its environment.</summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BlockNode.#ctor(Funwap.LexicalAnalysis.Token,System.String,Funwap.AbstractSyntaxTree.BlockType)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the symbol "{".</param>
+            <param name="title">The title of the Block.</param>
+            <param name="t">The type <see cref="T:Funwap.AbstractSyntaxTree.BlockType"/> of this Block.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BlockNode.AddChild(Funwap.AbstractSyntaxTree.StatementNode)">
+            <summary>Adds the child <paramref name="n"/> to this instance.</summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.StatementNode"/> to add to this instance.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BlockNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BlockNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BlockNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.BlockNode.NewActivationRecord(System.Collections.Stack)">
+            <summary>Create a new Activation Record.</summary>
+            <param name="EnvStack">The Environment Stack.</param>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.CallNode">
+            <summary>
+            Denote a function call node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.CallNode.#ctor(Funwap.LexicalAnalysis.Token,System.Collections.Generic.List{Funwap.AbstractSyntaxTree.ExpressionNode},System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.CallNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the name of the function to call.</param>
+            <param name="ap">List of expressions that will form the actual parameters passed to the function.</param>
+            <param name="itIsStm"><code>true</code> if it is a statement, otherwise <code>false</code>.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.CallNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when calling a not function or calling this erroneously.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.CallNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.CallNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.ConstantNode">
+            <summary>
+            Denote a node of the Abstract Syntax Tree that contain a constant value.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ConstantNode.#ctor(Funwap.LexicalAnalysis.Token)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.ConstantNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the constant value.</param>
+            <exception cref="T:System.FunwapException">Thrown when the Token type is not an expected type or the url value has not the expected format.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ConstantNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ConstantNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+            <exception cref="T:System.FunwapException">Thrown when it is impossible to compile the constant value.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ConstantNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ConstantNode.GetInfoUrl(System.String)">
+            <summary>
+            Parse URL string in order to extract the useful information from it.
+            </summary>
+            <param name="url">The URL string to parse.</param>
+            <returns>
+            A <see cref="T:System.Tuple"/> containing: the port on which the server channel is listening and the object URI.
+            </returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.DeclarationNode">
+            <summary>
+            Denote a declaration node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DeclarationNode.#ctor(Funwap.LexicalAnalysis.Token,System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object},Funwap.AbstractSyntaxTree.ExpressionNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.DeclarationNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the identifier.</param>
+            <param name="t">The type of this variable.</param>
+            <param name="valueN">The subtree representing the value to be assigned to the identifier.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DeclarationNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the assignment does not respect the expected type.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DeclarationNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.DeclarationNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.Environment.EvalType">
+            <summary>
+            It is an enumeration type that reports all possible primitive types supported by the <see cref="T:Funwap.Environment.Eval"/> class.
+            </summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.VOID">
+            <summary>If it has no type.</summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.INT">
+            <summary>Type integer, "int"</summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.BOOL">
+            <summary>Type boolean, "bool"</summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.CHAR">
+            <summary>Type character, "char"</summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.STRING">
+            <summary>Type string, "string"</summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.URL">
+            <summary>Type network address, "url"</summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.FUN">
+            <summary>Type function, "fun"</summary>
+        </member>
+        <member name="F:Funwap.Environment.EvalType.ALL">
+            <summary>Special type used for ReadNode in the type checking phase</summary> 
+        </member>
+        <member name="T:Funwap.Environment.Eval">
+            <summary>
+            This class encloses all possible types and values that a variable can get.
+            </summary>
+        </member>
+        <member name="F:Funwap.Environment.Eval.Token">
+            <summary>The <see cref="F:Funwap.Environment.Eval.Token"/> of the variable.</summary>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,Funwap.Environment.EvalType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is not specified and the type it is surelly a primitive one. 
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="et">The primitive type, <see cref="T:Funwap.Environment.EvalType"/>, to associate with this object.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is not specified.
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="et">The type associate to this object.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is integer.
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="newValue">Integer value.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is boolean.
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="newValue">Boolean value.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is a character.
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="newValue">Character value.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is a string.
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="newValue">String value.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,System.Tuple{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is a url.
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="newValue">A <see cref="T:System.Tuple"/> containing: the port on which the server channel is listening and the object URI.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.FunctionNode,Funwap.Environment.Env)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Eval"/> class, where the value is a <see cref="T:Funwap.AbstractSyntaxTree.FunctionNode"/>.
+            </summary>
+            <param name="t">The <see cref="F:Funwap.Environment.Eval.Token"/>.</param>
+            <param name="newValue">The <see cref="T:Funwap.AbstractSyntaxTree.FunctionNode"/>.</param>
+            <param name="parent">The environment, <see cref="T:Funwap.Environment.Env"/>, to which the <see cref="T:Funwap.AbstractSyntaxTree.FunctionNode"/> refers looking at its parent.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.EvalType_ToString(Funwap.Environment.EvalType)">
+            <summary>Convert the <see cref="T:Funwap.Environment.EvalType"/> into a <see cref="T:System.String"/>.</summary>
+            <param name="t">The <see cref="T:Funwap.Environment.EvalType"/> to convert into a <see cref="T:System.String"/>.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the <see cref="T:Funwap.Environment.EvalType"/> <paramref name="t"/> was not expected.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.EvalType_Compile(Funwap.Environment.EvalType)">
+            <summary>Convert the <see cref="T:Funwap.Environment.EvalType"/> into a <see cref="T:System.String"/> compliant to the C# code.</summary>
+            <param name="t">The <see cref="T:Funwap.Environment.EvalType"/> to compile.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the <see cref="T:Funwap.Environment.EvalType"/> <paramref name="t"/> was not expected.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.TypeToString2(System.Text.StringBuilder,System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object})">
+            <summary>Convert the type into a string.</summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="type">The type to convert.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.ComileType2(System.Text.StringBuilder,System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object})">
+            <summary>Convert the type of this istance into a string compliant to the C# code.</summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="type">The type to compile.</param>
+        </member>
+        <member name="M:Funwap.Environment.Eval.TypeToString(System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object})">
+            <summary>Convert a type into a <see cref="T:System.String"/>.</summary>
+            <param name="type">The type to convert into a <see cref="T:System.String"/>.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:Funwap.Environment.Eval.CompileType(System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object})">
+            <summary>Convert a type into a <see cref="T:System.String"/> compliant to the C# code.</summary>
+            <param name="type">The type to compile.</param>
+            <returns>A <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:Funwap.Environment.Eval.ConvertType(Funwap.LexicalAnalysis.TokenType)">
+            <summary>Covert a <see cref="T:Funwap.LexicalAnalysis.TokenType"/> into an <see cref="T:Funwap.Environment.EvalType"/>.</summary>
+            <param name="t">The <see cref="T:Funwap.LexicalAnalysis.TokenType"/> <paramref name="t"/> to convert.</param>
+            <returns>The converted type.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it cannot do the conversion.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.EqualTypes(System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object},System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object})">
+            <summary>Check if the two types: <paramref name="type1"/> e <paramref name="type2"/> are equal.</summary>
+            <param name="type1">The first type.</param>
+            <param name="type2">The second type.</param>
+            <returns><code>true</code> if they are equal, otherwise <code>false</code>.</returns>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetIValue">
+            <summary>If this instance has primitive type int, return an integer value, otherwise it throws an exception.</summary>
+            <returns>An integer value.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it is not possible to return an integer value for this Eval object.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetBValue">
+            <summary>If this instance has primitive type bool, return an boolean value, otherwise it throws an exception.</summary>
+            <returns>A boolean value.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it is not possible to return a boolean value for this Eval object.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetCValue">
+            <summary>If this instance has primitive type char, return a character value, otherwise it throws an exception.</summary>
+            <returns>A character value.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it is not possible to return a character value for this Eval object.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetSValue">
+            <summary>If this instance has primitive type string, return a string value, otherwise it throws an exception.</summary>
+            <returns>A string value.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it is not possible to return a string value for this Eval object.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetFValue">
+            <summary>If this instance has primitive type fun, return a functon value, otherwise it throws an exception.</summary>
+            <returns>The pair (<see cref="T:Funwap.AbstractSyntaxTree.FunctionNode"/>,  <see cref="T:Funwap.Environment.Env"/>).</returns>
+            <exception cref="T:System.FunwapException">Thrown when it is not possible to return a function value for this Eval object.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetUValue">
+            <summary>If this instance has primitive type url, return a url value, otherwise it throws an exception.</summary>
+            <returns>A <see cref="T:System.Tuple"/> containing: the port on which the server channel is listening and the object URI.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it is not possible to return a url value for this Eval object.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Eval.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="M:Funwap.Environment.Eval.Clone">
+            <summary>Clones this instance.</summary>
+            <returns>A <see cref="T:Funwap.Environment.Eval"/> copy of this istance.</returns>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetValue">
+            <summary>Gets the value of this istance.</summary>
+            <returns>The value of this istance.</returns>
+        </member>
+        <member name="M:Funwap.Environment.Eval.GetEvalType">
+            <summary>Gets the type of this istance.</summary>
+            <returns>The type of this istance.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.ForNode">
+            <summary>
+            Denote a FOR statement node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ForNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.StatementNode,Funwap.AbstractSyntaxTree.ExpressionNode,Funwap.AbstractSyntaxTree.StatementNode,Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.ForNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the FOR statement.</param>
+            <param name="stm1">The first statement executed only at the begining.</param>
+            <param name="condN">The subtree representing the condition.</param>
+            <param name="stm2">The second statement executed at the end of each iteration.</param>
+            <param name="body">The subtree originated by the BODY code.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ForNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the FOR condition is not a boolean type.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ForNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ForNode.GetValue2(Funwap.Result)">
+            <summary>Manage and evaluate the cycle part of the FOR statement.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.FunctionNode">
+            <summary>
+            Denote a function node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.FunctionNode.Rtype">
+            <summary>The return type of the function</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.FunctionNode.FormalParameters">
+            <summary>The formal parameters of the function.</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.FunctionNode.BodyNode">
+            <summary>The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> rappresenting the body of the function.</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.FunctionNode.ReturnValue">
+            <summary>The returned value of the function, useful for type checking.</summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.#ctor(Funwap.LexicalAnalysis.Token,System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object},System.Collections.Generic.List{System.Tuple{System.String,Funwap.Environment.EvalType}},Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.FunctionNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the name of the function.</param>
+            <param name="r">The r.</param>
+            <param name="fp">The fp.</param>
+            <param name="bodyN">The body n.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.GetTitle">
+            <summary>
+            Gets the title of this function.
+            </summary>
+            <returns>A <see cref="T:System.String"/> rappresenting the title of the function.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.SetTitle(Funwap.GraphicTree.SquareNode)">
+            <summary>Sets the title of this graphical node <paramref name="n"/></summary>
+            <param name="n">The <see cref="T:Funwap.GraphicTree.SquareNode"/> used to rappresent this <see cref="T:Funwap.AbstractSyntaxTree.FunctionNode"/>.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.GetFunctionType">
+            <summary>Gets the type of the function.</summary>
+            <returns>The type of the function</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.Call(Funwap.Result,Funwap.Environment.Env,System.Collections.Generic.List{Funwap.Environment.Eval})">
+            <summary>Perform the call of this function's instance.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <param name="parent">The parent Enviroment.</param>
+            <param name="args">The arguments passed to the function.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.CheckRType(Funwap.LexicalAnalysis.Token,System.Tuple{Funwap.Environment.EvalType,System.Collections.Generic.List{Funwap.Environment.EvalType},System.Object},Funwap.Environment.Eval)">
+            <summary>
+            Check if the returned value respect the specifics of the return type.
+            </summary>
+            <param name="t">The token of the function.</param>
+            <param name="rtype">The expected return type.</param>
+            <param name="returnValue">The value returned by the function.</param>
+            <exception cref="T:System.FunwapException">Thrown when the expected return type and the returned value are different.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.FunctionNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.IfNode">
+            <summary>
+            Denote a IF statement node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.IfNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.ExpressionNode,Funwap.AbstractSyntaxTree.BlockNode,Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.IfNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the IF statement.</param>
+            <param name="condN">The subtree representing the condition.</param>
+            <param name="thenN">The subtree originated by the THEN code.</param>
+            <param name="elseN">The subtree originated by the ELSE code.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.IfNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the IF condition is not a boolean type or when the branches do not return the same type.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.IfNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.IfNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.OperationType">
+            <summary>
+            It is an enumeration type that reports all possible operations supported by the <see cref="T:Funwap.AbstractSyntaxTree.OperationNode"/> class.
+            </summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.OR">
+            <summary>Logical OR, "<![CDATA[or]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.AND">
+            <summary>Logical AND, "<![CDATA[and]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.NOT">
+            <summary>Logical NOT, "<![CDATA[not]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.EQUAL">
+            <summary>Equality operator, "<![CDATA[==]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.INEQUAL">
+            <summary>Inequality operator, "<![CDATA[!=]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.GREATER">
+            <summary>Greater than operator, "<![CDATA[>]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.GREATEREQ">
+            <summary>Greater than or equal to operator, "<![CDATA[>=]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.LESS">
+            <summary>Less than operator, "<![CDATA[<]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.LESSEQ">
+            <summary>Less than or equal to operator, "<![CDATA[<=]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.PLUS">
+            <summary>Addition operator, "<![CDATA[+]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.MINUS">
+            <summary>Subtraction operator, "<![CDATA[-]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.MUL">
+            <summary>Multiplication operator, "<![CDATA[*]]>"</summary>
+        </member>
+        <member name="F:Funwap.AbstractSyntaxTree.OperationType.DIV">
+            <summary>Division operator, "<![CDATA[/]]>"</summary>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.PrintNode">
+            <summary>
+            Denote a print node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.PrintNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.ExpressionNode[])">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.PrintNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the PRINT statement.</param>
+            <param name="exps">The exps.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.PrintNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.PrintNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.ReturnNode">
+            <summary>
+            Denote a return node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReturnNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.SyntacticNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.ReturnNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the RETURN statement.</param>
+            <param name="valueN">The subtree representing the returned value.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReturnNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReturnNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.ReturnNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.UnaryOperationNode">
+            <summary>
+            Denote a unary operation node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.UnaryOperationNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.ExpressionNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.UnaryOperationNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the type of operation that we want to execute.</param>
+            <param name="n">The child on which the operation is performed.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.UnaryOperationNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the operation is not supported.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.UnaryOperationNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.UnaryOperationNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.VarNode">
+            <summary>
+            Denote a node of the Abstract Syntax Tree that contain an integer value.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.VarNode.#ctor(Funwap.LexicalAnalysis.Token)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.VarNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the identifier of the variable.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.VarNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.VarNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.VarNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the variable is not been initialized.</exception>
+        </member>
+        <member name="T:Funwap.AbstractSyntaxTree.WhileNode">
+            <summary>
+            Denote a WHILE statement node of the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.WhileNode.#ctor(Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.ExpressionNode,Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AbstractSyntaxTree.WhileNode"/> class.</summary>
+            <param name="token">The <see cref="T:Funwap.LexicalAnalysis.Token"/> containing the WHILE statement.</param>
+            <param name="condN">The subtree representing the condition.</param>
+            <param name="bodyN">The subtree originated by the BODY code.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.WhileNode.Check(System.Collections.Stack)">
+            <summary>It is a method that perform the Type and Enviroment Checking.</summary>
+            <param name="EnvStack">The Enviroment Stack.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value that can be used by the parent node.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the WHILE condition is not a boolean type.</exception>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.WhileNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)">
+            <summary>It is a method to compile the code contained in the tree of this node.</summary>
+            <param name="r">The form window used only by the <see cref="T:Funwap.AbstractSyntaxTree.DAsyncNode"/>.</param>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/> used to form the string.</param>
+            <param name="tab">The number of tabulation we want to add to each row generated with the aim of generating a code indented properly.</param>
+        </member>
+        <member name="M:Funwap.AbstractSyntaxTree.WhileNode.GetValue(Funwap.Result)">
+            <summary>It is a method to return the value of the node exploring the tree under it.</summary>
+            <param name="r">The form window used for Stdin and Stdout.</param>
+            <returns>An <see cref="T:Funwap.Environment.Eval"/> value representing the valuation of the code contained in the tree of this node.</returns>
+        </member>
+        <member name="T:Funwap.AST">
+            <summary>
+            The Window that shows graphically the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.AST.#ctor(Funwap.GraphicTree.GTree{Funwap.GraphicTree.GNode})">
+            <summary>Initializes a new instance of the <see cref="T:Funwap.AST"/> class.</summary>
+            <param name="root">The Graphic root of the Abstract Syntax Tree.</param>
+        </member>
+        <member name="M:Funwap.AST.DrawingBox_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Handles the Paint event of the DrawingBox control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:Funwap.AST.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Funwap.AST.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Funwap.AST.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Funwap.Environment.Env">
+            <summary>
+            This class represents the Environment and it is a Dictionary of keys of type string,
+            and values are pair: <see cref="T:Funwap.Environment.Eval"/> value, boolean flag associated to the variable (used to distinguish the asyncronous variable from the syncronous ones).
+            </summary>
+        </member>
+        <member name="M:Funwap.Environment.Env.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Environment.Env"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.Environment.Env.RecursiveBind(System.String,System.Tuple{Funwap.Environment.Eval,System.Boolean},System.Boolean)">
+            <summary>
+            Binds the <paramref name="ide"/> with the <paramref name="value"/>.
+            </summary>
+            <param name="ide">The identifier.</param>
+            <param name="value">The value to bind to the identifier.</param>
+            <param name="declaration">In order to distinguish the type of binding to perform.</param>
+            <returns><code>true</code> if it performs the binding; otherwise <code>false</code>.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the variable was already declared with a different type.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Env.Clone">
+            <summary>Clones this instance.</summary>
+            <returns>A <see cref="T:Funwap.Environment.Env"/> copy of this istance.</returns>
+        </member>
+        <member name="M:Funwap.Environment.Env.Apply(Funwap.LexicalAnalysis.Token)">
+            <summary>
+            Searches in the Environment for identifier contained in the value of the Token <paramref name="t"/>.
+            </summary>
+            <param name="t">The Token containing the identifier.</param>
+            <returns>The value associated to this key.</returns>
+            <exception cref="T:System.FunwapException">Thrown when it could not found the key in the Environment.</exception>
+        </member>
+        <member name="M:Funwap.Environment.Env.Bind(System.String,Funwap.Environment.Eval,System.Boolean,System.Boolean)">
+            <summary>
+            Binds the identifier with the value formed by the pair: (<paramref name="value"/>, <paramref name="async"/>).
+            </summary>
+            <param name="ide">The identifier.</param>
+            <param name="value">The <see cref="T:Funwap.Environment.Eval"/> value.</param>
+            <param name="declaration">In order to distinguish the type of binding to perform.</param>
+            <param name="async">The asynchronous flag associated to the variable.</param>
+        </member>
+        <member name="M:Funwap.Environment.Env.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="P:Funwap.Environment.Env.Parent">
+            <summary>
+            Gets or sets the parent Environment of this one.
+            </summary>
+        </member>
+        <member name="T:System.FunwapException">
+            <summary>
+            Exception class for Funwap.
+            </summary>
+        </member>
+        <member name="M:System.FunwapException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.FunwapException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:System.FunwapException.#ctor(System.String,Funwap.LexicalAnalysis.Token)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.FunwapException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="token">The token that generated the error.</param>
+        </member>
+        <member name="P:System.FunwapException.Token">
+            <summary>
+            Gets or sets the <see cref="P:System.FunwapException.Token"/> that generate the errorr.
+            </summary>
+        </member>
+        <member name="T:Funwap.IDE">
+            <summary>
+            The Window that rappresent the IDE (Integrated development environment).
+            </summary>
+        </member>
+        <member name="M:Funwap.IDE.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.IDE"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.IDE.TokenError(System.String,Funwap.LexicalAnalysis.Token)">
+            <summary>Manage the graphical behavior when an error is generated.</summary>
+            <param name="msg">The errror message.</param>
+            <param name="t">The <see cref="T:Funwap.LexicalAnalysis.Token"/> that generate the error.</param>
+        </member>
+        <member name="M:Funwap.IDE.EditCode(System.Boolean)">
+            <summary>Perform all the operation to make the code editable or not.</summary>
+            <param name="codeEditable">If set to <c>true</c> make the code editable, if set to <c>false</c> make the code uneditable.</param>
+        </member>
+        <member name="M:Funwap.IDE.ScannerPhase">
+            <summary>All the action to perform during the Scanners phase.</summary>
+        </member>
+        <member name="M:Funwap.IDE.RemoveTokenError">
+            <summary>Removes the graphical signaling in red of the last error.</summary>
+        </member>
+        <member name="M:Funwap.IDE.Colorize(System.Collections.Generic.IEnumerable{Funwap.LexicalAnalysis.Token})">
+            <summary>
+            Color the code depending on the type of token.
+            </summary>
+            <param name="tokens">List of tokens.</param>
+        </member>
+        <member name="M:Funwap.IDE.ParserPhase">
+            <summary>All the action to perform during the Parser phase.</summary>
+        </member>
+        <member name="M:Funwap.IDE.MenuItem_OpenFile_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_OpenFile control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Funwap.IDE.MenuItem_Exit_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_Exit control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Funwap.IDE.MenuItem_Help_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_Help control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Funwap.IDE.MenuItem_About_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_About control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Funwap.IDE.MenuItem_ShowAST_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the MenuItem_ShowAST control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:Funwap.IDE.components">
+            <summary>
+            Variabile di progettazione necessaria.
+            </summary>
+        </member>
+        <member name="M:Funwap.IDE.Dispose(System.Boolean)">
+            <summary>
+            Liberare le risorse in uso.
+            </summary>
+            <param name="disposing">ha valore true se le risorse gestite devono essere eliminate, false in caso contrario.</param>
+        </member>
+        <member name="M:Funwap.IDE.InitializeComponent">
+            <summary>
+            Metodo necessario per il supporto della finestra di progettazione. Non modificare
+            il contenuto del metodo con l'editor di codice.
+            </summary>
+        </member>
+        <member name="F:Funwap.IDE.Console">
+            <summary>The Console <see cref="T:System.Windows.Forms.TextBox"/> used to report all the actions and errors.</summary>
+        </member>
+        <member name="T:Funwap.GraphicTree.CircleNode">
+            <summary>
+            A class to draw a circular node that follows the interface <see cref="T:Funwap.GraphicTree.IDrawable"/>.
+            </summary>
+        </member>
+        <member name="T:Funwap.GraphicTree.GNode">
+            <summary>
+            A class to draw a graphical node that follows the interface <see cref="T:Funwap.GraphicTree.IDrawable"/>.
+            </summary>
+        </member>
+        <member name="T:Funwap.GraphicTree.IDrawable">
+            <summary>
+            Interface that a node must have in order to be drawn it.
+            </summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.IDrawable.GetSize(System.Drawing.Graphics)">
+            <summary>
+            Return the object's needed size.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <returns>The calulated size.</returns>
+        </member>
+        <member name="M:Funwap.GraphicTree.IDrawable.Draw(System.Drawing.Graphics,System.Single,System.Single)">
+            <summary>
+            Draw the node centered at (<paramref name="x"/>, <paramref name="y"/>)
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="x">The x-coordinate of the center.</param>
+            <param name="y">The y-coordinate of the center.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.IDrawable.IsPointInside(System.Drawing.Graphics,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Return true if the <paramref name="target"/> point is inside this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="center">The center point.</param>
+            <param name="target">The target point.</param>
+            <returns><c>true</c> if the target point is inside this node; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:Funwap.GraphicTree.IDrawable.Margin">
+            <summary>
+            Gets or sets the margin space to leave on the left and right for 
+            the node label when measuring the ellipse size, that is the node's border.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.IDrawable.BgBrush">
+            <summary>
+            Gets or sets the brush used for the node's background.
+            </summary>
+        </member>
+        <member name="F:Funwap.GraphicTree.GNode.textList">
+            <summary>It contains the list of texts that make up the title of the node, each one with their graphical properties.</summary>
+        </member>
+        <member name="F:Funwap.GraphicTree.GNode.pen">
+            <summary>The properties of the pen used to draw the node's border.</summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.GraphicTree.GNode"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.DrawNode(System.Drawing.Graphics,System.Drawing.SizeF,System.Single,System.Single)">
+            <summary>
+            Draw the node, without label, centered at (<paramref name="x"/>, <paramref name="y"/>)
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="size">The size of the node obtained calling <see cref="M:Funwap.GraphicTree.GNode.GetSize(System.Drawing.Graphics)"/> method.</param>
+            <param name="x">The x-coordinate of the center.</param>
+            <param name="y">The y-coordinate of the center.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.AddText(System.String,System.Drawing.KnownColor,System.Drawing.FontStyle,System.Single,System.String)">
+            <summary>
+            Allows to add a text, with private formatting, into the graphic node.
+            </summary>
+            <param name="s">The text string.</param>
+            <param name="txtColor">Color of the text.</param>
+            <param name="fs">The font style of the text.</param>
+            <param name="sizeText">The size of the text.</param>
+            <param name="family">The font family of the text.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.SetBorderPen(System.Drawing.KnownColor,System.Single,System.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            Set the properties of the border pen.
+            </summary>
+            <param name="penColor">Color of the pen.</param>
+            <param name="width">The line's width.</param>
+            <param name="st">The pen's style.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.DeleteBorderPen">
+            <summary>
+            Set to <c>null</c> the properties of the border pen, so the border will not be drawn.
+            </summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.GetSize(System.Drawing.Graphics)">
+            <summary>
+            Return the size of the string plus a margin.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <returns>The calulated size.</returns>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.Draw(System.Drawing.Graphics,System.Single,System.Single)">
+            <summary>
+            Draw the node centered at (<paramref name="x"/>, <paramref name="y"/>)
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="x">The x-coordinate of the center.</param>
+            <param name="y">The y-coordinate of the center.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GNode.IsPointInside(System.Drawing.Graphics,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Return true if the <paramref name="target"/> point is inside this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="center">The center point.</param>
+            <param name="target">The target point.</param>
+            <returns><c>true</c> if the target point is inside this node; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="P:Funwap.GraphicTree.GNode.Margin">
+            <summary>
+            Gets or sets the margin space to leave on the left and right for 
+            the node label when measuring the ellipse size, that is the node's border.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GNode.BgBrush">
+            <summary>
+            Gets or sets the brush used for the node's background.
+            </summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.CircleNode.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.GraphicTree.CircleNode"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.CircleNode.DrawNode(System.Drawing.Graphics,System.Drawing.SizeF,System.Single,System.Single)">
+            <summary>
+            Draw the node centered at (<paramref name="x"/>, <paramref name="y"/>)
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="size">The size of the node.</param>
+            <param name="x">The x-coordinate of the center.</param>
+            <param name="y">The y-coordinate of the center.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.CircleNode.IsPointInside(System.Drawing.Graphics,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Return true if the <paramref name="target"/> point is inside this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="center">The center point.</param>
+            <param name="target">The target point.</param>
+            <returns><c>true</c> if the target point is inside this node; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:Funwap.GraphicTree.GTree`1">
+            <summary>
+            A class to draw a generic tree made of children of the same arbitrary type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The element type of the children of the tree. It has to be IDrawable.</typeparam>
+        </member>
+        <member name="F:Funwap.GraphicTree.GTree`1.Node">
+            <summary>The node of the tree of arbitrary type T.</summary>
+        </member>
+        <member name="F:Funwap.GraphicTree.GTree`1.children">
+            <summary>Private member for <see cref="P:Funwap.GraphicTree.GTree`1.Children"/>.</summary>
+        </member>
+        <member name="F:Funwap.GraphicTree.GTree`1.treeArea">
+            <summary>Private member for <see cref="P:Funwap.GraphicTree.GTree`1.TreeArea"/>.</summary>
+        </member>
+        <member name="F:Funwap.GraphicTree.GTree`1.hidden">
+            <summary>Private member for <see cref="P:Funwap.GraphicTree.GTree`1.HiddenSubTree"/>.</summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.GraphicTree.GTree`1"/> class.
+            </summary>
+            <param name="newNode">The node of the tree</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.GetNodeCenter(System.Drawing.Graphics)">
+            <summary>
+            Calculate the node's center from the infromation of the TreeArea
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <returns>The point to the center of the node.</returns>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.DrawArcs(System.Drawing.Graphics)">
+            <summary>
+             Draw the arcs for the subtree rooted in this node.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.DrawNodes(System.Drawing.Graphics)">
+            <summary>
+            Draw the nodes for the subtree rooted in this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.MoveTree(System.Single,System.Single)">
+            <summary>
+            Move the entire Tree of (<paramref name="x"/>, <paramref name="y"/>) respect to the previous location.
+            </summary>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.AddChild(Funwap.GraphicTree.GTree{`0})">
+            <summary>
+            Add a child to the tree.
+            </summary>
+            <param name="child">The child to add.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.Draw(System.Drawing.Graphics)">
+            <summary>
+            Draw the subtree rooted in this node.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.Arrange(System.Drawing.Graphics)">
+            <summary>
+            Arrange the node and its children.
+            </summary>
+            <param name="g">The Graphics Context.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.GTree`1.NodeAtPoint(System.Drawing.Graphics,System.Drawing.PointF)">
+            <summary>
+            Return the GTree at the <paramref name="target"/> point (or <c>null</c> if there isn't one there).
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="target">The target point.</param>
+            <returns>Node of the Tree pointed.</returns>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.OldTextNode">
+            <summary>
+            Gets or sets a space where to keep save the node's label.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.SyntacticNode">
+            <summary>
+            Gets or sets the <see cref="P:Funwap.GraphicTree.GTree`1.SyntacticNode"/> object which has genereted it
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.Children">
+            <summary>
+            Gets the The list of children rooted in this node of arbitrary type T.
+            We have a list of children since it is a generic tree.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.HiddenSubTree">
+            <summary>
+            Gets or sets a value indicating whether to hide or not the children of the node.
+            </summary>
+            <value>
+            The HiddenSubTree property gets/sets the value of the bool field, hidden.
+            </value>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.ArcPen">
+            <summary>
+            Gets or sets the pen used to draw the arcs of the tree.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.TreeArea">
+            <summary>
+            Gets or sets the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.X">
+            <summary>
+            Gets or sets the x-coordinate of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.Y">
+            <summary>
+            Gets or sets the y-coordinate of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.Width">
+            <summary>
+            Gets or sets the Width property of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="P:Funwap.GraphicTree.GTree`1.Height">
+            <summary>
+            Gets or sets the Height property of the rectangle that encloses the tree.
+            </summary>
+        </member>
+        <member name="T:Funwap.GraphicTree.SquareNode">
+            <summary>
+            A class to draw a rectangular node that follows the interface <see cref="T:Funwap.GraphicTree.IDrawable"/>.
+            </summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.SquareNode.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.GraphicTree.SquareNode"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.GraphicTree.SquareNode.DrawNode(System.Drawing.Graphics,System.Drawing.SizeF,System.Single,System.Single)">
+            <summary>
+            Draw the node centered at (<paramref name="x"/>, <paramref name="y"/>)
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="size">The size of the node.</param>
+            <param name="x">The x-coordinate of the center.</param>
+            <param name="y">The y-coordinate of the center.</param>
+        </member>
+        <member name="M:Funwap.GraphicTree.SquareNode.IsPointInside(System.Drawing.Graphics,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Return true if the <paramref name="target"/> point is inside this node
+            </summary>
+            <param name="g">The Graphics Context.</param>
+            <param name="center">The center point.</param>
+            <param name="target">The target point.</param>
+            <returns><c>true</c> if the target point is inside this node; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:Funwap.LexicalAnalysis.Scanner">
+            <summary>
+            It is the class performing the lexical analysis,
+            that is the process of converting a sequence of characters into a sequence of tokens.
+            </summary>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.LexicalAnalysis.Scanner"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.Advance(System.Boolean)">
+            <summary>
+            Advances properly the source text.
+            </summary>
+            <param name="newRow">if set to <c>true</c> increase the row counter and set to zero the column counter.</param>
+            <exception cref="T:System.FunwapException">Thrown when the source text ends before expected.</exception>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.LookAhead(System.Int32,System.Char)">
+            <summary>
+            Look to the character in position <paramref name="p" /> respect to the current one in the source text.
+            If the source is not ended, check if the character is equal to <paramref name="c" />.
+            </summary>
+            <param name="p">How much look ahead.</param>
+            <param name="c">The character to compare.</param>
+            <returns>
+              <c>true</c> if the character is equal; oterwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.Skip_WhiteSpace">
+            <summary>
+            Skips all whitespace characters and to get to the meaningful text.
+            </summary>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.Skip_Comments">
+            <summary>
+            Skips all comments to get to the meaningful text.
+            Actually, a Comment token is created in order to implement the colorize functionality of the source code.
+            The Comment token will be skipped in the parser implementation.
+            </summary>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.ScanToken">
+            <summary>
+            We try to recognize the token applaying the list of rules
+            </summary>
+            <returns>The recognized token.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the token cannot be recognized.</exception>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.Initialize(System.String)">
+            <summary>
+            Initializes the Scanner.
+            </summary>
+            <param name="text">The source text to scan.</param>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Scanner.Tokenize">
+            <summary>
+            Tokenize the source text.
+            </summary>
+            <returns>A collection of Token that can be enumerated.</returns>
+        </member>
+        <member name="T:Funwap.LexicalAnalysis.TokenType">
+            <summary>
+            It is an enumeration type that reports all possible tokens supported by the <see cref="T:Funwap.LexicalAnalysis.Token"/> class.
+            </summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.DECLVAR">
+            <summary>Declaration of variable, "var"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.DECLFUNC">
+            <summary>Declaration of function, "func"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.TYPEINT">
+            <summary>Type integer, "int"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.TYPEBOOL">
+            <summary>Type boolean, "bool"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.TYPECHAR">
+            <summary>Type character, "char"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.TYPESTRING">
+            <summary>Type string, "string"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.TYPEURL">
+            <summary>Type network address, "url"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.TYPEFUN">
+            <summary>Type function, "fun"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.CURLYBR_OPEN">
+            <summary>Symbol "{"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.CURLYBR_CLOSE">
+            <summary>Symbol "}"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.ROUNDBR_OPEN">
+            <summary>Symbol "("</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.ROUNDBR_CLOSE">
+            <summary>Symbol ")"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.SEMICOLONS">
+            <summary>Symbol ";"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.COMMA">
+            <summary>Symbol ","</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.INCR">
+            <summary>Incremental statement, "++"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.DECR">
+            <summary>Decremental statement, "--"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.ASSIGN">
+            <summary>Assignment operator, "="</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.ASSIGN_PLUS">
+            <summary>Assignment operator, "+="</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.ASSIGN_MINUS">
+            <summary>Assignment operator, "-="</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.IF">
+            <summary>Conditional statement, "if"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.ELSE">
+            <summary>Conditional statement, "else"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.WHILE">
+            <summary>Iteration statement, "while"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.FOR">
+            <summary>Iteration statement, "for"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.ASYNC">
+            <summary>Asynchronous statement, "async"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.DASYNC">
+            <summary>Distributed statement, "dasync"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.RETURN">
+            <summary>Return statement, "return"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.PRINTLN">
+            <summary>Print statement, "println"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.READLN">
+            <summary>Read statement, "readln"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.OR">
+            <summary>Logical OR, "<![CDATA[||]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.AND">
+            <summary>Logical AND, "<![CDATA[&&]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.NOT">
+            <summary>Logical NOT, "<![CDATA[!]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.EQUAL">
+            <summary>Equality operator, "<![CDATA[==]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.INEQUAL">
+            <summary>Inequality operator, "<![CDATA[!=]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.GREATER">
+            <summary>Greater than operator, "<![CDATA[>]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.GREATEREQ">
+            <summary>Greater than or equal to operator, "<![CDATA[>=]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.LESS">
+            <summary>Less than operator, "<![CDATA[<]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.LESSEQ">
+            <summary>Less than or equal to operator, "<![CDATA[<=]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.PLUS">
+            <summary>Addition operator, "<![CDATA[+]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.MINUS">
+            <summary>Subtraction operator, "<![CDATA[-]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.MUL">
+            <summary>Multiplication operator, "<![CDATA[*]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.DIV">
+            <summary>Division operator, "<![CDATA[/]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.NUMBER">
+            <summary>Any integer number, ex: <example>1</example></summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.CHAR">
+            <summary>Any character delimited by single quotes, ex: <example>'a'</example></summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.URL">
+            <summary>Any url, identified by the following regular expression: "<![CDATA[tcp://localhost:(\d+)/(\w+)]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.STRING">
+            <summary>Any sequence of characters delimited by double quotes, ex: <example>"string"</example></summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.IDE">
+            <summary>Any identifier, identified by the following regular expression: "<![CDATA[^[_a-zA-Z][_a-zA-Z0-9]*]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.TRUE">
+            <summary>Logical value, "<![CDATA[true]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.FALSE">
+            <summary>Logical value, "<![CDATA[false]]>"</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.MAIN">
+            <summary>Identifier "main" is treated separately to ensure that the program always present the main function.</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.COMMENT">
+            <summary>Line or multiline comments</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.UNKNOWN">
+            <summary>Token not recognized</summary>
+        </member>
+        <member name="F:Funwap.LexicalAnalysis.TokenType.EOF">
+            <summary>End of file</summary>
+        </member>
+        <member name="T:Funwap.LexicalAnalysis.Token">
+            <summary>
+            The class constructs a Token, that is a single atomic unit of the language.
+            </summary>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Token.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.LexicalAnalysis.Token"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Token.#ctor(Funwap.LexicalAnalysis.TokenType,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.LexicalAnalysis.Token"/> class.
+            </summary>
+            <param name="type">The type of the Token.</param>
+            <param name="value">The text value.</param>
+            <param name="index">The position where it was found.</param>
+            <param name="row">The row position where it was found.</param>
+            <param name="column">The column position where it was found.</param>
+            <param name="length">Its length.</param>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Token.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Token.ItIsType">
+            <summary>
+            Check if the Token is a type Token, like "int", "bool", "char", ...
+            </summary>
+            <returns><code>true</code> if the Token is a type Toke, otherwise <code>false</code>.</returns>
+        </member>
+        <member name="M:Funwap.LexicalAnalysis.Token.ItIsStmt">
+            <summary>
+            Check if the Token is a statement Token, like "if", "while", "for", ...
+            </summary>
+            <returns><code>true</code> if the Token is a statement Toke, otherwise <code>false</code>.</returns>
+        </member>
+        <member name="P:Funwap.LexicalAnalysis.Token.Type">
+            <summary>
+            Gets or sets the type of token that we want to create.
+            </summary>
+        </member>
+        <member name="P:Funwap.LexicalAnalysis.Token.Value">
+            <summary>
+            Gets or sets the text value of this token.
+            </summary>
+        </member>
+        <member name="P:Funwap.LexicalAnalysis.Token.Index">
+            <summary>
+            Gets or sets the position inside the source text where this token was found.
+            </summary>
+        </member>
+        <member name="P:Funwap.LexicalAnalysis.Token.Row">
+            <summary>
+            Gets or sets the line position inside the source text where this token was found.
+            </summary>
+        </member>
+        <member name="P:Funwap.LexicalAnalysis.Token.Column">
+            <summary>
+            Gets or sets the column position inside the source text where this token was found.
+            </summary>
+        </member>
+        <member name="P:Funwap.LexicalAnalysis.Token.Length">
+            <summary>
+            Gets or sets the length of the found token.
+            </summary>
+        </member>
+        <member name="M:Funwap.Program.Main">
+            <summary>
+            Punto di ingresso principale dell'applicazione.
+            </summary>
+        </member>
+        <member name="T:Funwap.Result">
+            <summary>
+            The Window that manages the results of the interpretation or of the compilation of the code.
+            </summary>
+        </member>
+        <member name="F:Funwap.Result.Caller">
+            <summary>The caller <see cref="T:Funwap.IDE"/> of this instance.</summary>
+        </member>
+        <member name="F:Funwap.Result.EnvStack">
+            <summary>The Enviroment Stack.</summary>
+        </member>
+        <member name="F:Funwap.Result.CanCompile">
+            <summary>If it has found a C# compiler of version 4.</summary>
+        </member>
+        <member name="F:Funwap.Result.References">
+            <summary>The list of references to add in the C# compiler options while compiling the C# file.</summary>
+        </member>
+        <member name="M:Funwap.Result.#ctor(Funwap.IDE,Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Result"/> class.
+            </summary>
+            <param name="caller">The caller <see cref="T:Funwap.IDE"/> of this instance.</param>
+            <param name="main">The Token of the "Main" function.</param>
+            <param name="root">The root of the  Abstract Syntax Tree.</param>
+        </member>
+        <member name="M:Funwap.Result.Intepret">
+            <summary>
+            Inteprets the code using the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.Result.Compile(System.String)">
+            <summary>
+            Compile the code using the Abstract Syntax Tree.
+            </summary>
+        </member>
+        <member name="M:Funwap.Result.GetStdin">
+            <summary>
+            Call the <see cref="T:Funwap.Stdin"/> windows and gets its result, that is the User input.
+            </summary>
+            <returns>A <see cref="T:System.String"/> that rappresent the User input.</returns>
+        </member>
+        <member name="M:Funwap.Result.Stdout_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Handles the KeyPress event of the Stdout control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Funwap.Result.ExeOutputHandler(System.Object,System.Diagnostics.DataReceivedEventArgs)">
+            <summary>
+            Manages all the output of the executable process launched.
+            </summary>
+            <param name="sendingProcess">The executable process launched.</param>
+            <param name="outLine">The <see cref="T:System.Diagnostics.DataReceivedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Funwap.Result.LaunchCompileExe(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Launch the C# compiler in order to trasform the C# code into an executable file
+            or a dll file, depending on the <paramref name="library"/> value.
+            </summary>
+            <param name="nameFile">The name of the file containig C# code.</param>
+            <param name="library">if set to <c>true</c> we want to create a library.</param>
+            <param name="needRef">If set to <c>true</c> the file needs the references to the libraries.</param>
+        </member>
+        <member name="F:Funwap.Result.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Funwap.Result.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Funwap.Result.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Funwap.Result.Stdout">
+            <summary>The Standard Output <see cref="T:System.Windows.Forms.TextBox"/> used to write the results of the code interpretation.</summary>
+        </member>
+        <member name="T:Funwap.Stdin">
+            <summary>
+            The Window used as a ShowDialog in order to accept input form the User.
+            </summary>
+        </member>
+        <member name="M:Funwap.Stdin.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.Stdin"/> class.
+            </summary>
+        </member>
+        <member name="M:Funwap.Stdin.OKButton_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Handles the KeyPress event of the OKButton control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="F:Funwap.Stdin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Funwap.Stdin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Funwap.Stdin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Funwap.Stdin.Input">
+            <summary>The Input <see cref="T:System.Windows.Forms.TextBox"/> used to acquire the User input.</summary>
+        </member>
+        <member name="T:Funwap.SyntacticAnalysis.Parser">
+            <summary>
+            It is the class performing the syntactic analysis,
+            that is the process of analysing a string according to the rules of a formal grammar.
+            </summary>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.#ctor(System.Collections.Generic.List{Funwap.LexicalAnalysis.Token})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funwap.SyntacticAnalysis.Parser"/> class.
+            </summary>
+            <param name="tokenlist">The list of tokens to be parsed.</param>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.MoveNext">
+            <summary>
+            Set the variable current to the next Token to analyze.
+            </summary>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.MatchToken(Funwap.LexicalAnalysis.TokenType)">
+            <summary>
+            Try to see if the token found has the expected type <paramref name="t"/> we wanted. In the positive case, it move to the next Token.
+            </summary>
+            <param name="t">TokenType we expect at this point.</param>
+            <returns>The token if it is matched; otherwise thrown the exception</returns>
+            <exception cref="T:System.FunwapException">Thrown when the token found has not expected type we wanted.</exception>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.LookAhead(System.Int32,Funwap.LexicalAnalysis.TokenType)">
+            <summary>
+            Look ahead of <paramref name="p" /> position in the tokenlist in order to see if the token 
+            has the expected type <paramref name="t" /> we wanted.
+            </summary>
+            <param name="p">How much look ahead.</param>
+            <param name="t">TokenType we expect at this point.</param>
+            <returns><c>true</c> if the token is matched; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.GetMatchType">
+            <summary>
+            Try to see if the token found is a type Token, as  "int", "bool", "char"...;  in the positive case, it move to the next Token.
+            </summary>
+            <returns>The EvalType found if it is matched; otherwise thrown the exception.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the token found has not expected type we wanted.</exception>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Main(Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>
+            Parse the Main → func Main ( ) Block
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <returns>The "Main" Token found.</returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.DeclList(Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>
+            Parse the DeclList → Decl DeclList | ε
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Decl(Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>
+            Parse the Decl → var VarDeclList Type ; | FunDecl
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <exception cref="T:System.FunwapException">Thrown when the variable declared has not a type Token.</exception>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.FunDecl(Funwap.AbstractSyntaxTree.BlockNode,System.Boolean)">
+            <summary>
+            Parse the FunDecl → func IDE ( Params ) RType Block
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <param name="anonymous">if set to <c>true</c> do no parse the IDE.</param>
+            <returns>The <see cref="T:Funwap.AbstractSyntaxTree.FunctionNode"/> created if a function declaration is found.</returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Type">
+            <summary>
+            Parse the RType → Type | ε, where Type → int | bool | char | url | string | fun ( TypeList ) RType
+            </summary>
+            <returns>
+            	A <see cref="T:System.Tuple"/> containing 3 elements, if the EvalType is not a FUN type only the first element is different from <code>null</code>:
+            	-	The EvalType found;
+            	-	The list of EvalType containing in the parameters of the FUN type;
+            	-	The returned type of the FUN type;
+            </returns>
+            <exception cref="T:System.FunwapException">Thrown when a parameter of type FUN is not a valid type.</exception>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.VarDeclList(Funwap.AbstractSyntaxTree.BlockNode,System.Collections.Generic.List{System.Tuple{Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.ExpressionNode}})">
+            <summary>
+            Parse the VarDeclList → VarDecl, VarDeclList | VarDecl
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <param name="vars">Each variable found it is add to this list.</param>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.VarDecl(Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>
+            Parse the VarDecl → IDE | IDE = Exp
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <returns>
+            	A <see cref="T:System.Tuple"/> containing 2 elements: the Token rappresenting variable name and the possible <see cref="T:Funwap.AbstractSyntaxTree.ExpressionNode"/> assingned to it.
+            </returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Params">
+            <summary>
+            Parse the Params → ParamList | ε, where ParamList → IDE Type , ParamList | IDE Type
+            </summary>
+            <returns>The list of formal parameters found.</returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Block(Funwap.AbstractSyntaxTree.BlockNode,System.String,Funwap.AbstractSyntaxTree.BlockType)">
+            <summary>
+            Parse the Block → { DeclList StmtList }
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <param name="title">The title of the <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> created.</param>
+            <param name="type">A <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> can be Program block, a Main block o just a normal block.</param>
+            <returns>The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> created.</returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.StmtList(Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>
+            Parse the StmtList → Stmt StmtList | ε
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Stmt(Funwap.AbstractSyntaxTree.BlockNode)">
+            <summary>
+            Parse the Stmt → IDE StmtIDE | IDE = readln(); | Call; | IDE = async(Exp); | IDE = dasync(IDE,Call);
+            				 | if(Exp) Block ElseStmt | while(Exp) Block | for(IDE = Exp; Exp; IDE StmtIDE) Block
+            				 | return Exp; | return FunDecl; | println (PrintList);
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.StmtIDE(Funwap.AbstractSyntaxTree.BlockNode,Funwap.LexicalAnalysis.Token,System.Boolean)">
+            <summary>
+            Parse the StmtIDE → = Exp ; | += Exp ; | -= Exp ; | ++ ; | -- ;
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <param name="ide">The identifier.</param>
+            <param name="semicolons">If set to <c>true</c> match the Token ";".</param>
+            <returns>The <see cref="T:Funwap.AbstractSyntaxTree.AssignNode"/> created.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the parsed statement is invalid.</exception>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Assign(Funwap.AbstractSyntaxTree.BlockNode,Funwap.LexicalAnalysis.Token,Funwap.AbstractSyntaxTree.SyntacticNode,Funwap.LexicalAnalysis.Token,System.Boolean)">
+            <summary>
+            Manage the creation of the <see cref="T:Funwap.AbstractSyntaxTree.AssignNode"/> taking into consideration all the possible cases shown in StmtIDE.
+            </summary>
+            <param name="n">The <see cref="T:Funwap.AbstractSyntaxTree.BlockNode"/> to which add the created node.</param>
+            <param name="ide">The identifier.</param>
+            <param name="rightNode">The right node.</param>
+            <param name="op">The operation to perform between the identifier and the right node.</param>
+            <param name="semicolons">If set to <c>true</c> match the Token ";".</param>
+            <returns>The <see cref="T:Funwap.AbstractSyntaxTree.AssignNode"/> created.</returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Call(Funwap.LexicalAnalysis.Token,System.Boolean)">
+            <summary>
+            Parse the Call → IDE ( Args )
+            </summary>
+            <param name="ide">The identifier.</param>
+            <param name="itIsStm">In order to distinguish the case of statement Call and the Call inside expression.</param>
+            <returns>The <see cref="T:Funwap.AbstractSyntaxTree.CallNode"/> created.</returns>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.Factor">
+            <summary>
+            Parse the Factor → IDE | ( Exp ) | Call | Const
+            </summary>
+            <returns>The <see cref="T:Funwap.AbstractSyntaxTree.ExpressionNode"/> created analysing the Factor.</returns>
+            <exception cref="T:System.FunwapException">Thrown when the parsed factor is invalid.</exception>
+        </member>
+        <member name="M:Funwap.SyntacticAnalysis.Parser.ParseTree">
+            <summary>
+            Parse the source text and constructs an abstract syntax tree.
+            </summary>
+            <returns>A <see cref="T:System.Tuple"/> containing The "Main" Token and the root of the abstract syntax tree.</returns>
+            <exception cref="T:System.FunwapException">&gt;Thrown when found a Token different from the end of the file.</exception>
+        </member>
+        <member name="T:Funwap.Properties.Resources">
+            <summary>
+              Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+            </summary>
+        </member>
+        <member name="P:Funwap.Properties.Resources.ResourceManager">
+            <summary>
+              Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+            </summary>
+        </member>
+        <member name="P:Funwap.Properties.Resources.Culture">
+            <summary>
+              Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte
+              le ricerche di risorse che utilizzano questa classe di risorse fortemente tipizzata.
+            </summary>
+        </member>
+    </members>
+</doc>

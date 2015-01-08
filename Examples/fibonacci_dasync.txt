@@ -1,0 +1,34 @@
+// Normal Fibonacci Function
+func fibrec (n int) int
+{
+	if ((n == 0) || (n == 1)) { return n; }
+	else { return fibrec(n-1) + fibrec(n-2); }
+}
+
+// Distributed Fibonacci Function
+func fib (n int) int
+{
+	if ((n == 0) || (n == 1))
+	{
+		return n;
+	}
+	else
+	{
+		var a,b int;
+		var u = tcp://localhost:9998/FibonacciBooking url;
+		
+		// We do not wait for fibrec(n-1)
+		a = async(fibrec(n-1));
+
+		// because we perform fibrec(n-2) in a remote site
+		b = dasync(u, fibrec(n-2));
+
+		// but here we wait
+		return a + b;
+	}
+}
+
+func Main()
+{
+	println(fib(10)); // 55
+}

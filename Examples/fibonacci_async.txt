@@ -1,0 +1,33 @@
+// Normal Fibonacci Function
+func fibrec (n int) int
+{
+	if ((n == 0) || (n == 1)) { return n; }
+	else { return fibrec(n-1) + fibrec(n-2); }
+}
+
+// Asynchronous Fibonacci Function
+func fib (n int) int
+{
+	if ((n == 0) || (n == 1))
+	{
+		return n;
+	}
+	else
+	{
+		var a,b int;
+		
+		// We do not wait for fibrec(n-1)
+		a = async(fibrec(n-1));
+
+		// because we perform fibrec(n-2) in parallel
+		b = async(fibrec(n-2));
+
+		// but here we wait
+		return a + b;
+	}
+}
+
+func Main()
+{
+	println(fib(10)); // 55
+}

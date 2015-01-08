@@ -1,0 +1,26 @@
+func Main ()
+{
+	// single-line comments
+	/* multiple line comment
+	   it is also allowd */
+	   
+	// a is 0, so is b
+	var a = 0, b = 0, i int;
+	
+	//a_eq_b is TRUE
+	var a_eq_b = a == b bool;
+	
+	for (i = 0 ; i < 32 ; i++)
+	{
+		a += i;
+	}
+	
+	if (a_eq_b && (a == 0))
+	{
+		println("a is 0, so is b.");
+	}
+	else 
+	{ 
+		println("At least one between a or b is not zero.");
+	}
+}

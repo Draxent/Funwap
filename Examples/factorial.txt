@@ -1,0 +1,19 @@
+func fatt(n int) int
+{
+	if (n <= 1) { return 1; }
+	else
+	{
+		return n * fatt(n-1);
+	}
+}
+
+func Main()
+{
+	var n int;
+
+	println("Inserisci N =");
+	n = readln();
+
+	// fatt(5) = 120
+	println("FATT(",n,") = ",fatt(n));
+}

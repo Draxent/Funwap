@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder" version="2014.5.31.0" projectFile="C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Funwap documentation.shfbproj" started="07/01/2015 19.32.42">
+<buildStep step="Initializing">
+Finding tools...
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Searching for HTML Help 1 compiler...
+Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
+Locating components in the following folder(s):
+   C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap
+Using presentation style &#39;VS2013&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013&#39;
+Loading and initializing plug-ins...
+Lightweight Website Style Version 2014.5.31.0
+Copyright &#169; 2006-2014, Eric Woodruff, All Rights Reserved
+Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Funwap\bin\Debug\Funwap.exe
+    Found assembly &#39;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Funwap\bin\Debug\Funwap.exe&#39;
+Source: C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Funwap\bin\Debug\Funwap.XML
+
+Copying XML comments files
+    C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Funwap\bin\Debug\Funwap.XML -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Funwap.XML
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+<plugIn name="Lightweight Website Style" behavior="After" priority="1000">
+</plugIn>    Last step completed in 00:00:00.3302
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0450
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+Build started 07/01/2015 19.32.46.
+Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
+PrepareForBuild:
+  Creating directory &quot;obj\Debug\&quot;.
+GenerateRefInfo:
+  MRefBuilder (v2014.5.31.0)
+  Copyright &#184; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Loaded 1 assemblies for reflection and 1 dependency assemblies.
+  Wrote information on 7 namespaces, 31 types, and 240 members
+  Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
+  XslTransform (v2014.5.31.0)
+  Copyright &#184; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\MergeDuplicates.xsl&#39;.
+Done Building Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\GenerateRefInfo.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:10.22
+    Last step completed in 00:00:12.4043
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+Build started 07/01/2015 19.32.58.
+Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
+TransformManifest:
+  XslTransform (v2014.5.31.0)
+  Copyright &#184; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Copying file from &quot;reflection.xml&quot; to &quot;reflection.nofilenames&quot;.
+  XslTransform (v2014.5.31.0)
+  Copyright &#184; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2014.5.31.0)
+  Copyright &#184; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+Done Building Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\TransformManifest.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:10.66
+    Last step completed in 00:00:11.8749
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.5554
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+No additional content to copy
+    Last step completed in 00:00:00.0180
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0040
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+Build started 07/01/2015 19.33.10.
+Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
+GenerateIntermediateTOC:
+  XslTransform (v2014.5.31.0)
+  Copyright &#184; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\CreateVSToc.xsl&#39;.
+Done Building Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\GenerateIntermediateTOC.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.42
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:03.7285
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00.3953
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\sandcastle.config
+    Last step completed in 00:00:00.0580
+</buildStep>
+<buildStep step="BuildReferenceTopics">
+Building reference help topics...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+Build started 07/01/2015 19.33.14.
+Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj&quot; on node 1 (default targets).
+BuildReferenceTopics:
+  BuildAssembler (v2014.5.31.0)
+  Copyright &#184; 2006-2014, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+BuildAssembler : warning : CopyFromIndexComponent: Entries for the key &#39;N:System&#39; occur in both &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Data\Reflection\System.xml&#39; and &#39;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\reflection.xml&#39;. The last entry will be used. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+  Processing topics...
+BuildAssembler : warning : ShowMissingComponent: [N:Funwap] Missing &lt;summary&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Funwap.Result.Compile(System.String)] Missing &lt;param name=&quot;nameFile&quot;/&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:Funwap.AbstractSyntaxTree] Missing &lt;summary&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.BinaryOperationNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.BlockNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.CallNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.ConstantNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:Funwap.AbstractSyntaxTree.FunctionNode.Call(Funwap.Result,Funwap.Environment.Env,System.Collections.Generic.List{Funwap.Environment.Eval})] Missing &lt;returns&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.FunctionNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.SyntacticNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.UnaryOperationNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:Funwap.AbstractSyntaxTree.VarNode.Compile(Funwap.Result,System.Text.StringBuilder,System.Int32)] Unknown reference link target &#39;T:Funwap.AbstractSyntaxTree.DAsyncNode&#39;. [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:Funwap.Environment] Missing &lt;summary&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:Funwap.GraphicTree] Missing &lt;summary&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:Funwap.LexicalAnalysis] Missing &lt;summary&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:Funwap.SyntacticAnalysis] Missing &lt;summary&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [N:System] Missing &lt;summary&gt; documentation [C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj]
+  Processed 273 topic(s)
+  18 warning(s)
+  CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 8 of 15.
+  CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 1 of 30.
+  ResolveReferenceLinksComponent: New MSDN content ID cache size: 660 entries
+Done Building Project &quot;C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\BuildReferenceTopics.proj&quot; (default targets).
+
+Build succeeded.
+
+Time Elapsed 00:01:07.43
+    Last step completed in 00:01:08.5217
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+    Last step completed in 00:00:00.0060
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+Sandcastle Help File Builder, version 2014.5.31.0
+Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
+
+Processing Help 1 files in C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1
+Processed 273 HTML files
+Sorting keywords and generating See Also indices
+Saving HTML Help 1 keyword index to C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Documentation.hhk
+Saving HTML Help 1 table of contents to C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Documentation.hhc
+    Last step completed in 00:00:06.2692
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertCaution.png -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\AlertCaution.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertNote.png -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\AlertNote.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertSecurity.png -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\AlertSecurity.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CFW.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\CFW.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CodeExample.png -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\CodeExample.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\favicon.ico -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privclass.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privdelegate.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privenumeration.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privevent.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privextension.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privfield.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privinterface.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privmethod.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privproperty.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privstructure.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\privstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protclass.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protdelegate.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protenumeration.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protevent.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protextension.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protfield.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protinterface.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protmethod.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protoperator.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protoperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protproperty.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protstructure.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\protstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubclass.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubclass.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubdelegate.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubdelegate.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubenumeration.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubenumeration.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubevent.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubevent.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubextension.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubextension.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubfield.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubfield.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubinterface.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubinterface.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubmethod.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubmethod.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\puboperator.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\puboperator.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubproperty.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubproperty.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubstructure.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\pubstructure.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionCollapsed.png -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\SectionCollapsed.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionExpanded.png -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\SectionExpanded.png
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\slMobile.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\slMobile.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\static.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\static.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\xna.gif -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\icons\xna.gif
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\scripts\branding.js -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\scripts\branding.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-cs-CZ.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-cs-CZ.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-de-DE.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-de-DE.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-en-US.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-en-US.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-es-ES.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-es-ES.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-fr-FR.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-fr-FR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Help1.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-Help1.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Help2.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-Help2.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-HelpViewer.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-HelpViewer.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-it-IT.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-it-IT.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ja-JP.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-ja-JP.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ko-KR.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-ko-KR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pl-PL.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-pl-PL.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pt-BR.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-pt-BR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ru-RU.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-ru-RU.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-tr-TR.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-tr-TR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Website.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-Website.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css -&gt; C:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\styles\branding.css
+    Last step completed in 00:00:01.3169
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating HTML Help 1 table of contents file...
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="GenerateHelpFileIndex">
+Generating HTML Help 1 index file...
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="GenerateHelpProject">
+Generating HTML Help 1 project file...
+    Last step completed in 00:00:00.0150
+</buildStep>
+<buildStep step="CompilingHelpFile">
+Compiling HTML Help 1 file...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+  Microsoft HTML Help Compiler 4.74.8702
+  
+  
+  
+  Compiling c:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\Documentation.chm
+  
+  
+  
+  
+  
+  Compile time: 0 minutes, 9 seconds
+  
+  275	Topics
+  
+  3,496	Local links
+  
+  8,970	Internet links
+  
+  0	Graphics
+  
+  
+  
+  
+  
+  Created c:\Users\Federico\Dropbox\University\Magistrale\Advanced Programming (AP)\Federico Conte\Funwap\Help\Working\Output\HtmlHelp1\Documentation.chm, 486,777 bytes
+  
+  Compression decreased file by 3,319,865 bytes.
+  
+    Last step completed in 00:00:16.9843
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:01.1258
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 01/07/2015 07.34 .  Total time: 00:02:05,5518
+
+</buildStep>
+</shfbBuild>

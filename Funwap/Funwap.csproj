@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6901B6D-588A-4338-AE3F-22076FE9756C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Funwap</RootNamespace>
+    <AssemblyName>Funwap</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Funwap.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\AsyncNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\DAsyncNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\ReadNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\AssignNode.cs" />
+    <Compile Include="AbstractSyntaxTree\ExpressionNode\BinaryOperationNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\BlockNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CallNode.cs" />
+    <Compile Include="AbstractSyntaxTree\ExpressionNode\ConstantNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\DeclarationNode.cs" />
+    <Compile Include="Environment\Eval.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\ForNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\FunctionNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\IfNode.cs" />
+    <Compile Include="AbstractSyntaxTree\ExpressionNode\OperationNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\PrintNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\ReturnNode.cs" />
+    <Compile Include="AbstractSyntaxTree\SyntacticNode.cs" />
+    <Compile Include="AbstractSyntaxTree\ExpressionNode\UnaryOperationNode.cs" />
+    <Compile Include="AbstractSyntaxTree\ExpressionNode\VarNode.cs" />
+    <Compile Include="AbstractSyntaxTree\StatementNode\CommandNode\WhileNode.cs" />
+    <Compile Include="AST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AST.Designer.cs">
+      <DependentUpon>AST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Environment\Env.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="IDE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDE.Designer.cs">
+      <DependentUpon>IDE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicTree\CircleNode.cs" />
+    <Compile Include="GraphicTree\GNode.cs" />
+    <Compile Include="GraphicTree\GTree.cs" />
+    <Compile Include="GraphicTree\IDrawable.cs" />
+    <Compile Include="GraphicTree\SquareNode.cs" />
+    <Compile Include="LexicalAnalysis\Scanner.cs" />
+    <Compile Include="LexicalAnalysis\Token.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Result.Designer.cs">
+      <DependentUpon>Result.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stdin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stdin.Designer.cs">
+      <DependentUpon>Stdin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyntacticAnalysis\Parser.cs" />
+    <EmbeddedResource Include="AST.resx">
+      <DependentUpon>AST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IDE.resx">
+      <DependentUpon>IDE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Result.resx">
+      <DependentUpon>Result.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stdin.resx">
+      <DependentUpon>Stdin.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,21 @@
+func wrapper() fun(int) fun(int) int
+{
+	return func(start int) fun(int) int
+	{
+		var count = start int;
+		return func(s int) int { count += s; return count; };
+	};
+}
+
+func Main()
+{
+	var w1 = wrapper(), w2 fun(int) fun(int) int;
+	var c1 = w1(0), c2, c3 fun(int) int;
+	println(c1(1)); // 1
+	c2 = c1;
+	println(c2(1)); // 2
+	w2 = wrapper();
+	c3 = w2(0);
+	println(c1(1)); // 3
+	println(c3(1)); // 1
+}

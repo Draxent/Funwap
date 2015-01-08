@@ -1,0 +1,18 @@
+func sum (n int) int
+{
+	var i, s = 0 int;
+	for (i = 1; i <= n; i++)
+	{
+		s += i;
+	}
+	return s;
+}
+
+func Main ()
+{
+	var n int;
+	println("Inserisci N = ");
+	n = readln();
+	
+	println("La somma dei primi ", n, " numeri naturali = ", sum(n));
+}
