@@ -4,14 +4,15 @@ Interpreter and Compiler for the Funw@p language.
 
 ##Introduction
 
-The software was built with the goal to simulate the behaviour of an <b>IDE</b> (Integrated development environment).
-It is an interpreter and a compiler, written in <b>C#</b>, for the Funw@p language.
+The software was built with the goal to simulate the behaviour of an <b>IDE</b> (Integrated development environment).<br />
+It is an interpreter and a compiler, written in <b>C#</b>, for the Funw@p language.<br /><br />
 
 Thanks to the graphical interface, it is really simple to use. You need just to run it and it will appear a Windows Form.<br />
 It contains a menu containing the items:
  - <b>File</b> → where you can open the file of your program written in the Funw@p language.
- - <b>Execute</b> → you can geynerete the Abstract Syntax Tree, compile or interpret your code. 
+ - <b>Execute</b> → you can geynerete the Abstract Syntax Tree, compile or interpret your code.
  - <b>?</b> → containing a Help and About buttons.
+
 If you need more information, you can read the file: <i>"Documentation.pdf"</i>.
 
 In order to understand the Funw@p language, you can read the file: <i>"Funw@p - Grammar.pdf"</i>.<br />
@@ -29,7 +30,7 @@ a list of working examples that allows you to see the potential of the language.
   {
     // Scanner phase
     Scanner s = new Scanner();
-    s.Initialize("func Main(){ println("Hello World!");  }");
+    s.Initialize("func Main(){ println(\"Hello World!\"); }");
     IEnumerable<Token> tokens = s.Tokenize();
     
     // Trasform the token enumerator in list and remove all the comments
