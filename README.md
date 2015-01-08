@@ -4,7 +4,8 @@ Interpreter and Compiler for the Funw@p language.
 
 ##Project specifications
 Funw@p <i>(read fun with AP)</i> is a domain specific programming language designed to support general mathematical and logical operations. The language has native support for <b>higher order functions</b> and <b>parallel programming</b>.<br/>
-Funw@p helps you <b>distribute</b> your computationally expensive or network related problems across multiple machines in a cluster. Those machines can execute their portion of the problem and then send results back to the master program.
+Funw@p helps you <b>distribute</b> your computationally expensive or network related problems across multiple machines in a cluster. Those machines can execute their portion of the problem and then send results back to the master program.<br/>
+For more information, read the file: <i>"PA_Proj_Midterm2014-15.pdf"</i>
 
 ##Introduction
 The software was built with the goal to simulate the behaviour of an <b>IDE</b> (Integrated development environment).<br />
