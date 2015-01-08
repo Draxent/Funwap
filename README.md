@@ -2,8 +2,11 @@
 Interpreter and Compiler for the Funw@p language.
 ====
 
-##Introduction
+##Project specifications
+Funw@p (read fun with AP) is a domain specific programming language designed to support general mathematical and logical operations. The language has native support for higher order functions and parallel programming.<br/>
+Funw@p helps you distribute your computationally extensive or network related problems across multiple machines in a cluster. Those machines can execute their portion of the problem and then send results back to the master program.
 
+##Introduction
 The software was built with the goal to simulate the behaviour of an <b>IDE</b> (Integrated development environment).<br />
 It is an interpreter and a compiler, written in <b>C#</b>, for the Funw@p language.<br /><br />
 
@@ -55,6 +58,18 @@ public IDE()
    catch (System.FunwapException ex) { System.Console.Write(ex.Message); }
 }
 ```
+
+##Supported Types
+|   Types  |       Description       |
+|:--------:|:-----------------------:|
+|   void   |	No type                 |
+|   int    |	Type integer            |
+|   bool   |	Type boolean            |
+|   char   |	Type character          |
+|  string  |	Type string             |
+|   url    |	Type network address    |
+|   fun    |	Type function           |
+
 
 ##Supported Operation
 | Operator |       Description       |
