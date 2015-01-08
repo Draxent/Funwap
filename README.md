@@ -9,7 +9,7 @@ For more information, read the file: <i>"PA_Proj_Midterm2014-15.pdf"</i>
 
 ##Introduction
 The software was built with the goal to simulate the behaviour of an <b>IDE</b> (Integrated development environment).<br />
-It is an interpreter and a compiler, written in <b>C#</b>, for the Funw@p language.<br /><br />
+It is an interpreter and a compiler, written in <b>C#</b>, for the Funw@p language.<br />
 
 Thanks to the graphical interface, it is really simple to use. You need just to run it and it will appear a Windows Form.<br />
 It contains a menu containing the items:
