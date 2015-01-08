@@ -56,6 +56,30 @@ namespace Funwap
         {
             InitializeComponent();
 			Editor.AcceptsTab = true;
+
+			try
+			{
+				// Scanner phase
+				scanner = new Scanner();
+				scanner.Initialize("func Main(){ println(\"Hello World!\"); }");
+				tokens = scanner.Tokenize();
+
+				// Trasform the token enumerator in list and remove all the comments
+				tokenlist = new List<Token>();
+				foreach (var token in tokens)
+					if (token.Type != TokenType.COMMENT)
+						tokenlist.Add(token);
+
+				// Parser phase
+				parser = new Parser(tokenlist);
+
+				// Create the Abstract Syntax Tree.
+				System.Tuple<Token, BlockNode> pair = parser.ParseTree();
+				main = pair.Item1;
+				root = pair.Item2;
+				nameFile = "Hello_World";
+			}
+			catch (System.FunwapException ex) { System.Console.Write(ex.Message); }
         }
         #endregion
 
