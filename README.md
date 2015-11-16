@@ -88,3 +88,10 @@ public IDE()
 |    -     |	Subtraction    |
 |    ×     |	Multiplication |
 |    ÷     |	Division       |
+
+###License
+The MIT License (MIT)
+
+Copyright (c) 2015 Federico Conte
+
+http://opensource.org/licenses/MIT
