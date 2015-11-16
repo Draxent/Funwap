@@ -24,7 +24,7 @@ The image below shows the Abstract Syntax Tree of the factorial program generate
 If you need more information, you can read the file: [Documentation.pdf](./Documentation.pdf).
 
 In order to understand the Funw@p language, you can read the file: [Funw@p - Grammar.pdf](./Funw@p - Grammar.pdf).<br />
-Since it can be difficult to read the grammar, in the [Example](./Example) directory you can find 
+Since it can be difficult to read the grammar, in the [Examples](./Examples) directory you can find 
 a list of working examples that allows you to see the potential of the language.
 
 ####Key Features:
