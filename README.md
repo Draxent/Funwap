@@ -2,12 +2,14 @@
 Interpreter and Compiler for the Funw@p language.
 ====
 
-##Project specifications
+## Project specifications
+
 Funw@p <i>(read fun with AP)</i> is a domain specific programming language designed to support general mathematical and logical operations. The language has native support for <b>higher order functions</b> and <b>parallel programming</b>.<br/>
 Funw@p helps you <b>distribute</b> your computationally expensive or network related problems across multiple machines in a cluster. Those machines can execute their portion of the problem and then send results back to the master program.<br/>
 For more information, read the file: [PA_Proj_Midterm2014-15.pdf](./PA_Proj_Midterm2014-15.pdf)
 
-##Introduction
+## Introduction
+
 The software was built with the goal to simulate the behaviour of an <b>IDE</b> (Integrated development environment).<br />
 It is an interpreter and a compiler, written in <b>C#</b>, for the Funw@p language.<br />
 
@@ -27,12 +29,12 @@ In order to understand the Funw@p language, you can read the file: [Funw@p - Gra
 Since it can be difficult to read the grammar, in the [Examples](./Examples) directory you can find 
 a list of working examples that allows you to see the potential of the language.
 
-####Key Features:
+#### Key Features:
 - Simple and clear graphical interface; it is even shown a graphical representation of the Abstract Syntax Tree
 - Code full of comments and supports the Sandcastle Documentation
 - No dependencies to external libraries
 
-##Example
+## Example
 ```c#
 public IDE()
 {
@@ -64,7 +66,7 @@ public IDE()
 }
 ```
 
-##Supported Types
+## Supported Types
 |   Types  |       Description       |
 |:--------:|:-----------------------:|
 |   void   |	No type                 |
@@ -76,7 +78,7 @@ public IDE()
 |   fun    |	Type function           |
 
 
-##Supported Operation
+## Supported Operation
 | Operator |       Description       |
 |:--------:|:-----------------------:|
 |   OR     |	Logical OR       |
@@ -93,7 +95,7 @@ public IDE()
 |    ×     |	Multiplication |
 |    ÷     |	Division       |
 
-###License
+### License
 The MIT License (MIT)
 
 Copyright (c) 2015 Federico Conte
